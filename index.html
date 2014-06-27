@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Ember Starter Kit</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="http:////maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="moment.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
+</head>
+<body>
+
+
+  <script type="text/x-handlebars">
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Blogger</a>
+          <ul class="nav navbar-nav">
+            <li>{{#link-to 'posts'}}Posts{{/link-to}}</li>
+            <li>{{#link-to 'about'}}About{{/link-to}}</li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    {{outlet}}
+  </script>
+
+  <script type="text/x-handlebars" id="posts">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-3">
+          <table class='table'>
+            <thead>
+              <tr><th>Recent Posts</th></tr>
+            </thead>
+            {{#each model}}
+            <tr><td>
+                {{#link-to 'post' this}}{{title}} <small class='muted'>by {{author.name}}</small>{{/link-to}}
+            </td></tr>
+            {{/each}}
+          </table>
+        </div>
+        <div class="col-md-9">
+          {{outlet}}
+        </div>
+      </div>
+    </div>
+  </script>
+  
+  <script type="text/x-handlebars" id="post">
+    {{#if isEditing}}
+      {{partial 'post/edit'}}
+      <button {{action 'doneEditing'}}>Done</button>
+    {{else}}
+      <button {{action 'edit'}}>Edit</button>
+    {{/if}}
+
+    <h1>{{title}}</h1>
+    <h2>by {{author.name}} <small class="muted">({{format-date date}})</small></h2>
+    <hr>
+
+    <div class="intro">
+      {{format-markdown excerpt}}
+    </div>
+
+    <div class="below-the-fold">
+      {{format-markdown body}}
+    </div>
+  </script>
+
+  <script type="text/x-handlebars" id="post/_edit">
+    <p>{{input type="text" value=title}}</p>
+    <p>{{input type="text" value=excerpt}}</p>
+    <p>{{textarea value=body}}</p>
+  </script>
+  
+  <script type="text/x-handlebars" id="about">
+    <div class="about">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur voluptatibus nam quae in. Ad, tempore sed optio nulla animi natus laborum corporis, numquam consequuntur culpa eos ullam ex reprehenderit inventore.</p>
+    </div>
+  </script>
+
+
+  <script src="js/libs/jquery-1.10.2.js"></script>
+  <script src="js/libs/handlebars-1.1.2.js"></script>
+  <script src="js/libs/ember-1.5.1.js"></script>
+  <script src="js/app.js"></script>
+  <!-- to activate the test runner, add the "?test" query string parameter -->
+  <script src="tests/runner.js"></script>
+</body>
+</html>
