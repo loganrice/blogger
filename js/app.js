@@ -1,9 +1,7 @@
-
-
 var taskTable;
 
 $(document).ready(function(){
-	var appKey = 'ji7obe86xh5d1nf';
+	var appKey = 'ca2w8rewh811swk';
 	var client = new Dropbox.Client({key: appKey});
 	// Try to finish OAuth authorization.
 	client.authenticate({interactive: false}, function (error) {
