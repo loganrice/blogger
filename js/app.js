@@ -43,7 +43,7 @@ var addTask = function(){
 
     var results = blogTable.query();
 	for(var i = 0; i < results.length; i++){
-		$('#blogs').append("<a class='blog'>" + results[i].get('title') + "</a>");
+		$('#blogs').append("<a href='#' class='list-group-item'>" + results[i].get('title') + "</a>");
 	};
 }
 
