@@ -31,15 +31,10 @@ $(document).ready(function(){
 	    blogTable = datastore.getTable('tasks');
 	});
 
-	// reads all tasks and adds them to html
-	// taskQuery();
-	//add task button
-	$('.add').click(function(){
-			addTask();
-	});
+	blogList();
 });
 
-var addTask = function(){
+var blogList = function(){
 
     var results = blogTable.query();
 	for(var i = 0; i < results.length; i++){
