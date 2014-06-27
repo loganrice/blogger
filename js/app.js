@@ -80,5 +80,7 @@ var initDropbox = function () {
 
 	if (client.isAuthenticated()) {
 		console.log("the client is authenticated");
+	} else {
+		console.log("not authenticated");
 	}
 }
