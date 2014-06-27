@@ -68,19 +68,21 @@ var posts = [{
 
 }]
 
-var initDropbox = function () {
-	var appKey = 'ji7obe86xh5d1nf';
-	var client = new Dropbox.Client({key: appKey});
-	// complete OAuth authorization.
-	client.authenticate({interactive: false}, function (error) {
-	    if (error) {
-	        alert('Authentication error: ' + error);
-	    }
-	});
+$(document).ready( function() {
+	
+		var appKey = 'ji7obe86xh5d1nf';
+		var client = new Dropbox.Client({key: appKey});
+		// complete OAuth authorization.
+		client.authenticate({interactive: false}, function (error) {
+		    if (error) {
+		        alert('Authentication error: ' + error);
+		    }
+		});
 
-	if (client.isAuthenticated()) {
-		console.log("the client is authenticated");
-	} else {
-		console.log("not authenticated");
-	};
-};
+		if (client.isAuthenticated()) {
+			console.log("the client is authenticated");
+		} else {
+			console.log("not authenticated");
+		};
+	
+});
