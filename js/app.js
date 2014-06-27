@@ -73,14 +73,14 @@ var initDropbox = function () {
 	var client = new Dropbox.Client({key: appKey});
 	// complete OAuth authorization.
 	client.authenticate({interactive: false}, function (error) {
-		if (error) {
-			alert('Authentication error: ' + error);
-		}
+	    if (error) {
+	        alert('Authentication error: ' + error);
+	    }
 	});
 
 	if (client.isAuthenticated()) {
 		console.log("the client is authenticated");
 	} else {
 		console.log("not authenticated");
-	}
-}
+	};
+};
