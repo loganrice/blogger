@@ -30,7 +30,7 @@ $(document).ready(function(){
 	    // Now you have a datastore. The next few examples can be included here.
 	    // define table name
 	    blogTable = datastore.getTable('tasks');
-	    var results = blogTable.query();
+	    results = blogTable.query();
 	    blogList(results);
 	});
 
