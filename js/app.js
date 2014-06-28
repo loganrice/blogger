@@ -44,9 +44,10 @@ $(document).ready(function(){
 	
 });
 
-var blogList = function(results){
+function blogList(results) {
 	for(var i = 0; i < results.length; i++){
-		$('#blog-table tr:last').append("<tr><td><a class='post' href='#'" + results[i].get('title') + "</a></td></tr>");
+		var record = results[i];
+		$('#blog-table tr:last').append("<tr><td><a class='post' href='#'" + record.get('title') + "</a></td></tr>");
 		};
 };
 
