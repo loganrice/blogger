@@ -1,4 +1,5 @@
 var blogTable;
+var results;
 
 $(document).ready(function(){
 	var appKey = 'ji7obe86xh5d1nf';
@@ -40,13 +41,12 @@ $(document).ready(function(){
 		var post = blogTable.query( {title: postTitle});
 		$("#post-content").append(post[0].get('body'));
 	});
-
-	var blogList = function(results){
-		for(var i = 0; i < results.length; i++){
-			$('#blog-table tr:last').append("<tr><td><a class='post' href='#'" + results[i].get('title') + "</a></td></tr>");
-			};
-	};	
+	
 });
 
-
+var blogList = function(results){
+	for(var i = 0; i < results.length; i++){
+		$('#blog-table tr:last').append("<tr><td><a class='post' href='#'" + results[i].get('title') + "</a></td></tr>");
+		};
+};
 
