@@ -35,16 +35,9 @@ $(document).ready(function(){
 });
 
 var blogList = function(){
-
     var results = blogTable.query();
 	for(var i = 0; i < results.length; i++){
-		$('#blogs').append("<a href='#' class='list-group-item'>" + results[i].get('title') + "</a>");
+		$('#blog-table tr:last').after("<tr><td><a href='#'" + results[i].get('title') + "</a>");
 	};
 }
 
-// var taskQuery = function(){
-// 	var results = blogTable.query();
-// 	for(i; i < results.length; i++){
-// 		$('#tasks').append("<li class='task'>" + results[i] + "</li>");
-// 	};
-// }
