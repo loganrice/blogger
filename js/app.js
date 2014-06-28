@@ -33,7 +33,7 @@ $(document).ready(function(){
 
 	var results = blogTable.query();
 
-	$("tbody").on("click", "post", fucntion() {
+	$("tbody").on("click", "post", function() {
 		var postTitle = $(this).text();
 		var post = blogTable.query( {title: postTitle});
 		$("#post-content").append(post[0].get('body'));
