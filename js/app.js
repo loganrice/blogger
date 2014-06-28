@@ -31,13 +31,20 @@ $(document).ready(function(){
 	    blogTable = datastore.getTable('tasks');
 	});
 
-	blogList();
+	var results = blogTable.query();
+
+	$("tbody").on("click", "post", fucntion() {
+		var postTitle = $(this).text();
+		var post = blogTable.query( {title: postTitle});
+		$("#post-content").append(post[0].get('body'));
+	});
+
+	blogList(results);
 });
 
-var blogList = function(){
-    var results = blogTable.query();
+var blogList = function(results){
 	for(var i = 0; i < results.length; i++){
-		$('#blog-table tr:last').after("<tr><td><a href='#'" + results[i].get('title') + "</a></td></tr>");
+		$('#blog-table tr:last').after("<tr><td><a class='post' href='#'" + results[i].get('title') + "</a></td></tr>");
 	};
 }
 
