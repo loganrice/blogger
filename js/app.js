@@ -29,9 +29,11 @@ $(document).ready(function(){
 	    // Now you have a datastore. The next few examples can be included here.
 	    // define table name
 	    blogTable = datastore.getTable('tasks');
+	    var results = blogTable.query();
+	    blogList(results);
 	});
 
-	var results = blogTable.query();
+	
 
 	$("tbody").on("click", "post", function() {
 		var postTitle = $(this).text();
@@ -39,12 +41,12 @@ $(document).ready(function(){
 		$("#post-content").append(post[0].get('body'));
 	});
 
-	blogList(results);
+	var blogList = function(results){
+		for(var i = 0; i < results.length; i++){
+			$('#blog-table tr:last').append("<tr><td><a class='post' href='#'" + results[i].get('title') + "</a></td></tr>");
+			};
+	};	
 });
 
-var blogList = function(results){
-	for(var i = 0; i < results.length; i++){
-		$('#blog-table tr:last').after("<tr><td><a class='post' href='#'" + results[i].get('title') + "</a></td></tr>");
-	};
-}
+
 
