@@ -15,7 +15,7 @@ if (client.isAuthenticated()) {
     alert("cool it worked");
 }
 
-var datastoreManager = client.getDatastoreManager();
+var datastoreManager = client.getDatastoreManager;
 
 datastoreManager.openDefaultDatastore(function (error, datastore) {
     if (error) {
