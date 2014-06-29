@@ -8,7 +8,7 @@ var appKey = 'ji7obe86xh5d1nf';
 
 
 $(function() {
-	var client = new Dropbox.Client({key: appKey});
+	client = new Dropbox.Client({key: appKey});
 	// Try to finish OAuth authorization.
 	client.authenticate({interactive: false}, function (error) {
 	    if (error) {
@@ -21,7 +21,7 @@ $(function() {
 	    alert("cool it worked");
 	}
 
-	var datastoreManager = client.getDatastoreManager;
+	datastoreManager = client.getDatastoreManager;
 
 	datastoreManager.openDefaultDatastore(function (error, datastore) {
 	    if (error) {
