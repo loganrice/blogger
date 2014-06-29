@@ -1,5 +1,7 @@
-var blogTable;
-var results;
+var blogTable,
+		datastoreManager,
+		results,
+		client;
 
 var appKey = 'ji7obe86xh5d1nf';
 
