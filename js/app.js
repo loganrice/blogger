@@ -21,7 +21,7 @@ $(function() {
 	    alert("cool it worked");
 	}
 
-	datastoreManager = client.getDatastoreManager;
+	datastoreManager = client.getDatastoreManager();
 
 	datastoreManager.openDefaultDatastore(function (error, datastore) {
 	    if (error) {
