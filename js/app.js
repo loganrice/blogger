@@ -54,13 +54,11 @@ $(document).ready(function(){
 		$("#post-content").append(post[0].get('body'));
 	});
 
-	blogList(results);
-});
-
-function blogList(results) {
-		for(var i = 0; i < results.length; i++){
+	for(var i = 0; i < results.length; i++){
 			var record = results[i];
 			$('#blog-table tr:last').append("<tr><td><a class='post' href='#'" + record.get('title') + "</a></td></tr>");
-			};
-};
+	};
+});
+
+
 
