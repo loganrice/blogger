@@ -54,9 +54,10 @@ $(document).ready(function(){
 		$("#post-content").append(post[0].get('body'));
 	});
 
-	for(var i = 0; i < results.length; i++){
-			var record = results[i];
-			$('#blog-table tr:last').append("<tr><td><a class='post' href='#'" + record.get('title') + "</a></td></tr>");
+	var recordCount = results.length
+
+	for(var i = 0; i < recordCount; i++){
+			$('#blog-table tr:last').append("<tr><td><a class='post' href='#'" + results[i].get('title') + "</a></td></tr>");
 	};
 });
 
