@@ -36,6 +36,10 @@ $(function() {
 
 	    recordCount = results.length
 
+	    for(var i = 0; i < recordCount; i++){
+				$('#blog-table').append("<tr><td><a class='post' href='#'>" + results[i].get('title') + "</a></td></tr>");
+			};
+
 	});
 
 	
@@ -51,10 +55,6 @@ $(function() {
 
 
 $(document).ready(function(){
-
-	for(var i = 0; i < recordCount; i++){
-				$('#blog-table').append("<tr><td><a class='post' href='#'>" + results[i].get('title') + "</a></td></tr>");
-		};
 
 	$("tbody").on("click", ".post", function() {
 		var postTitle = $(this).text();
