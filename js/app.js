@@ -53,7 +53,7 @@ $(function() {
 $(document).ready(function(){
 
 	for(var i = 0; i < recordCount; i++){
-				$('#blog-table tr:last').append("<tr><td><a class='post' href='#'" + results[i].get('title') + "</a></td></tr>");
+				$('#blog-table tr:last').append("<tr><td><a class='post' href='#'>" + results[i].get('title') + "</a></td></tr>");
 		};
 
 	$("tbody").on("click", ".post", function() {
