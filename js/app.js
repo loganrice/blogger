@@ -59,7 +59,7 @@ $(document).ready(function(){
 	$("tbody").on("click", ".post", function() {
 		var postTitle = $(this).text();
 		var postObj = readBlogPost(postTitle);
-		$("#post-title").text(postObj[0].get('body'));
+		$("#post-title").text(postObj[0].get('title'));
 		$("#post-text").text(postObj[0].get('body'));
 	});
 
