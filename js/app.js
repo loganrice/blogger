@@ -30,7 +30,7 @@ $(function() {
 
 	    // Now you have a datastore. The next few examples can be included here.
 	    // define table name
-	    blogTable = datastoreManager.getTable('tasks');
+	    blogTable = datastore.getTable('tasks');
 	    results = blogTable.query();
 
 	    var recordCount = results.length
