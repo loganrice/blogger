@@ -32,6 +32,12 @@ $(function() {
 	    // define table name
 	    blogTable = datastoreManager.getTable('tasks');
 	    results = blogTable.query();
+
+	    var recordCount = results.length
+
+		for(var i = 0; i < recordCount; i++){
+				$('#blog-table tr:last').append("<tr><td><a class='post' href='#'" + results[i].get('title') + "</a></td></tr>");
+		};
 	});
 
 	
@@ -54,11 +60,7 @@ $(document).ready(function(){
 		$("#post-content").append(postObj[0].get('body'));
 	});
 
-	var recordCount = results.length
-
-	for(var i = 0; i < recordCount; i++){
-			$('#blog-table tr:last').append("<tr><td><a class='post' href='#'" + results[i].get('title') + "</a></td></tr>");
-	};
+	
 });
 
 
