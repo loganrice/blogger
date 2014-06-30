@@ -50,8 +50,8 @@ $(document).ready(function(){
 
 	$("tbody").on("click", ".post", function() {
 		var postTitle = $(this).text();
-		var post = blogTable.query( {title: postTitle});
-		$("#post-content").append(post[0].get('body'));
+		postObj = readBlogPost(postTitle);
+		$("#post-content").append(postObj[0].get('body'));
 	});
 
 	var recordCount = results.length
@@ -61,5 +61,9 @@ $(document).ready(function(){
 	};
 });
 
+
+function readBlogPost(postTitle) {
+	return blogTable.query( {title: postTitle});
+};
 
 
