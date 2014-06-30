@@ -50,7 +50,7 @@ $(document).ready(function(){
 
 	$("tbody").on("click", ".post", function() {
 		var postTitle = $(this).text();
-		postObj = readBlogPost(postTitle);
+		var postObj = readBlogPost(postTitle);
 		$("#post-content").append(postObj[0].get('body'));
 	});
 
