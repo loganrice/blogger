@@ -1,6 +1,7 @@
 var blogTable,
 		datastoreManager,
 		results,
+		recordCount,
 		client;
 
 var appKey = 'ji7obe86xh5d1nf';
@@ -33,11 +34,8 @@ $(function() {
 	    blogTable = datastore.getTable('tasks');
 	    results = blogTable.query();
 
-	    var recordCount = results.length
+	    recordCount = results.length
 
-		for(var i = 0; i < recordCount; i++){
-				$('#blog-table tr:last').append("<tr><td><a class='post' href='#'" + results[i].get('title') + "</a></td></tr>");
-		};
 	});
 
 	
@@ -53,6 +51,10 @@ $(function() {
 
 
 $(document).ready(function(){
+
+	for(var i = 0; i < recordCount; i++){
+				$('#blog-table tr:last').append("<tr><td><a class='post' href='#'" + results[i].get('title') + "</a></td></tr>");
+		};
 
 	$("tbody").on("click", ".post", function() {
 		var postTitle = $(this).text();
